@@ -1,0 +1,41 @@
+FROM <%= base_image %>
+
+LABEL maintainer "Juan Martinez <arcangelo@gmail.com>"
+LABEL Description="Apache Zookeeper docker image" Version="<%= version %>"
+
+ARG ZOOKEEPER_VERSION=<%= version %>
+ENV ZOOKEEPER_HOME=/opt/zookeeper
+ENV INIT_DIR=/opt/init
+
+<% if version.include? '3.5' or version.include? '3.6' -%>
+<%    prefix = 'apache-' -%>
+<%    suffix = '-bin' -%>
+<% end -%>
+
+RUN apt-get update \
+    && apt-get install --no-install-recommends -y wget netcat \
+    && wget https://archive.apache.org/dist/zookeeper/zookeeper-${ZOOKEEPER_VERSION}/<%= prefix %>zookeeper-${ZOOKEEPER_VERSION}<%= suffix %>.tar.gz \
+    && mkdir -p ${ZOOKEEPER_HOME} \
+    && tar xvf <%= prefix %>zookeeper-${ZOOKEEPER_VERSION}<%= suffix %>.tar.gz -C ${ZOOKEEPER_HOME} --strip-components=1 \
+    && rm -fr <%= prefix %>zookeeper-${ZOOKEEPER_VERSION}<%= suffix %>.tar.gz \
+    && rm -fr $ZOOKEEPER_HOME/src \
+    $ZOOKEEPER_HOME/recipes \
+    $ZOOKEEPER_HOME/docs \
+    $ZOOKEEPER_HOME/contrib \
+    $ZOOKEEPER_HOME/dist-maven \
+    $ZOOKEEPER_HOME/zoopeeker-recipes \
+    $ZOOKEEPER_HOME/zoopeeker-docs \
+    $ZOOKEEPER_HOME/zoopeeker-recipes \
+    $ZOOKEEPER_HOME/zoopeeker-contrib \
+    && apt-get remove -y wget \
+    && apt-get clean \
+    && apt-get autoremove -y \
+    && rm -rf /var/lib/apt/lists/* \
+    && mkdir -p ${INIT_DIR}
+
+WORKDIR ${ZOOKEEPER_HOME}
+
+COPY scripts/bootstrap.sh ${INIT_DIR}/bootstrap.sh
+RUN chmod +x ${INIT_DIR}/bootstrap.sh
+
+CMD ${INIT_DIR}/bootstrap.sh

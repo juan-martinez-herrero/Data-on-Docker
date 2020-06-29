@@ -1,0 +1,30 @@
+version: "3.8"
+
+services:
+  hue:
+    image: juanmartinez/hue:<%= version %>
+    container_name: hue
+    hostname: hue
+    environment:
+      SERVICE_PRECONDITION: "mariadb-hue:3306"
+    env_file:
+    - hue-mariadb.env
+
+  mariadb-hue:
+    image: mariadb:<%= mariadb_version %>
+    container_name: mariadb-hue
+    hostname: mariadb-hue
+    ports:
+    - "3306:3306"
+    env_file:
+      - ./mariadb.env
+    volumes:
+      - ./storage/mariadb:/var/lib/mysql
+
+  hoster:
+    image: juanmartinez/docker-hoster
+    container_name: hadoop_hoster
+    hostname: hue_hoster
+    volumes:
+      - /var/run/docker.sock:/tmp/docker.sock
+      - /etc/hosts:/tmp/hosts
