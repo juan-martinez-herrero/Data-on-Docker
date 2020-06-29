@@ -1,0 +1,128 @@
+version: "3.7"
+
+services:
+  namenode-0:
+    image: juanmartinez/hadoop:<%= version %>
+    container_name: namenode-0
+    hostname: namenode-0
+    ports:
+    - "50070:50070"
+    volumes:
+      - ./storage/namenode_0:/hadoop/dfs/name
+    environment:
+      - HADOOP_CLUSTER_NAME=local
+    env_file:
+      - ./hadoop.env
+    networks:
+      - hadoop.local
+
+  datanode-0:
+    image: juanmartinez/hadoop:<%= version %>
+    container_name: datanode-0
+    hostname: datanode-0
+    volumes:
+      - ./storage/datanode_0:/hadoop/dfs/data
+    environment:
+<% if version =~ /^2\./ -%>
+      SERVICE_PRECONDITION: "namenode-0:50070"
+<% else -%>
+      SERVICE_PRECONDITION: "namenode-0:9870"
+<% end -%>
+    depends_on:
+      - namenode-0
+    env_file:
+      - ./hadoop.env
+    networks:
+      - hadoop.local
+
+  resourcemanager-0:
+    image: juanmartinez/hadoop:<%= version %>
+    container_name: resourcemanager-0
+    hostname: resourcemanager-0
+    environment:
+<% if version =~ /^2\./ -%>
+      SERVICE_PRECONDITION: "namenode-0:50070 datanode-0:50075"
+<% else -%>
+      SERVICE_PRECONDITION: "namenode-0:9870 datanode-0:9864"
+<% end -%>
+    depends_on:
+      - namenode-0
+      - datanode-0
+    env_file:
+      - ./hadoop.env
+    networks:
+      - hadoop.local
+
+  nodemanager-0:
+    image: juanmartinez/hadoop:<%= version %>
+    container_name: nodemanager-0
+    hostname: nodemanager-0
+    environment:
+<% if version =~ /^2\./ -%>
+      SERVICE_PRECONDITION: "namenode-0:50070 datanode-0:50075 resourcemanager-0:8088"
+<% else -%>
+      SERVICE_PRECONDITION: "namenode-0:9870 datanode-0:9864 resourcemanager-0:8088"
+<% end -%>
+    depends_on:
+      - namenode-0
+      - datanode-0
+      - resourcemanager-0
+    env_file:
+      - ./hadoop.env
+    networks:
+      - hadoop.local
+
+  historyserver:
+    image: juanmartinez/hadoop:<%= version %>
+    container_name: historyserver
+    hostname: historyserver
+    environment:
+<% if version =~ /^2\./ -%>
+      SERVICE_PRECONDITION: "namenode-0:50070 datanode-0:50075 resourcemanager-0:8088"
+<% else -%>
+      SERVICE_PRECONDITION: "namenode-0:9870 datanode-0:9864 resourcemanager-0:8088"
+<% end -%>
+    depends_on:
+      - namenode-0
+      - datanode-0
+      - resourcemanager-0
+    env_file:
+      - ./hadoop.env
+    networks:
+      - hadoop.local
+
+  timelineserver:
+    image: juanmartinez/hadoop:<%= version %>
+    container_name: timelineserver
+    hostname: timelineserver
+    volumes:
+      - ./storage/timelineserver:/hadoop/yarn/timeline
+    environment:
+<% if version =~ /^2\./ -%>
+      SERVICE_PRECONDITION: "namenode-0:50070 datanode-0:50075 resourcemanager-0:8088"
+<% else -%>
+      SERVICE_PRECONDITION: "namenode-0:9870 datanode-0:9864 resourcemanager-0:8088"
+<% end -%>
+    depends_on:
+      - namenode-0
+      - datanode-0
+      - resourcemanager-0
+    env_file:
+      - ./hadoop.env
+    networks:
+      - hadoop.local
+
+  hoster:
+    image: juanmartinez/docker-hoster
+    container_name: hadoop_hoster
+    hostname: hadoop_hoster
+    volumes:
+      - /var/run/docker.sock:/tmp/docker.sock
+      - /etc/hosts:/tmp/hosts
+    networks:
+      - hadoop.local
+
+networks:
+  hadoop.local:
+    driver: bridge
+    name: hadoop.local

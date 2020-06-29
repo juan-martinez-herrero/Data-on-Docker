@@ -1,0 +1,19 @@
+version: "3.7"
+
+services:
+  zeppelin:
+    image: juanmartinez/zeppelin:0.8.2
+    container_name: zeppelin
+    hostname: zeppelin
+    ports:
+    - "8080:8080"
+    env_file:
+    - zeppelin.env
+
+  hoster:
+    image: juanmartinez/docker-hoster
+    container_name: hadoop_hoster
+    hostname: hadoop_hoster
+    volumes:
+      - /var/run/docker.sock:/tmp/docker.sock
+      - /etc/hosts:/tmp/hosts
