@@ -2,7 +2,7 @@ version: "3.7"
 
 services:
   namenode:
-    image: juanmartinez/hadoop:2.7.7
+    image: juanmartinez/hadoop:2.10.0
     container_name: namenode
     hostname: namenode
     volumes:
@@ -13,7 +13,7 @@ services:
       - ./hadoop.env
 
   datanode:
-    image: juanmartinez/hadoop:2.7.7
+    image: juanmartinez/hadoop:2.10.0
     container_name: datanode
     hostname: datanode
     volumes:

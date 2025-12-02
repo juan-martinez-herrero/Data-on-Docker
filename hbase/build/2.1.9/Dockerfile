@@ -1,4 +1,4 @@
-FROM juanmartinez/hadoop:2.7.7
+FROM juanmartinez/hadoop:2.10.0
 
 ARG HBASE_VERSION=2.1.9
 ENV HBASE_HOME /opt/hbase

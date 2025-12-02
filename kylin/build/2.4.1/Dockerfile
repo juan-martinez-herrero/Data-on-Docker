@@ -1,4 +1,4 @@
-FROM juanmartinez/hadoop:2.7.7
+FROM juanmartinez/hadoop:2.10.0
 
 ARG KYLIN_VERSION=2.4.1
 ARG SPARK_VERSION=2.3.1
