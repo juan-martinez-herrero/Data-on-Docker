@@ -1,4 +1,4 @@
-FROM juanmartinez/gradle:4.8 AS BUILD
+FROM juanmartinez/gradle:6.2 AS BUILD
 
 ARG VERSION=2.0.90
 ARG UI_VERSION=0.3.4
