@@ -1,4 +1,4 @@
-FROM juanmartinez/openjdk:8.0.242
+FROM juanmartinez/openjdk:8.0.252
 
 LABEL maintainer "Juan Martinez <arcangelo@gmail.com>"
 LABEL Description="Apache Maven build-tool docker image" Version="3.6.3"

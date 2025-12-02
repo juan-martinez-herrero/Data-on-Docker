@@ -1,4 +1,4 @@
-FROM juanmartinez/openjdk:8.0.242
+FROM juanmartinez/openjdk:8.0.252
 
 ARG ELASTICSEARCH_VERSION=7.6.1
 ENV ELASTICSEARCH_HOME=/opt/elasticsearch

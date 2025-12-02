@@ -1,4 +1,4 @@
-FROM juanmartinez/openjdk:8.0.242
+FROM juanmartinez/openjdk:8.0.252
 
 ARG KUDU_VERSION=1.11.1
 ENV KUDU_HOME=/opt/kudu
