@@ -1,4 +1,4 @@
-FROM juanmartinez/openjdk:8.0.242
+FROM juanmartinez/openjdk:11.0.7
 
 LABEL maintainer "Juan Martinez <arcangelo@gmail.com>"
 LABEL Description="Apache Ant build-tools docker image" Version="1.10.7"

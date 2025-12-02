@@ -18,7 +18,7 @@ RUN gradle jar copyDependantLibs
 WORKDIR /opt/cruise-control-ui
 RUN npm install && npm run build
 
-FROM juanmartinez/openjdk:8.0.242
+FROM juanmartinez/openjdk:11.0.7
 
 ARG VERSION=2.0.90
 ENV CRUISE_CONTROL_HOME /opt/cruise-control

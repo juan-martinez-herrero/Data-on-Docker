@@ -1,4 +1,4 @@
-FROM juanmartinez/openjdk:8.0.242
+FROM juanmartinez/openjdk:11.0.7
 
 ARG ZEPPELIN_VERSION=0.8.2
 ARG MINICONDA_VERSION=3-4.7.12.1
