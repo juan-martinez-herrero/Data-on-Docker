@@ -1,4 +1,4 @@
-FROM juanmartinez/hadoop:2.7.7
+FROM juanmartinez/hadoop:2.10.0
 
 LABEL maintainer "Juan Martinez <arcangelo@gmail.com>"
 LABEL Description="Spark docker image" Version="2.4.5"

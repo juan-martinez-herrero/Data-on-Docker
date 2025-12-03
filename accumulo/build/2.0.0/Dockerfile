@@ -1,4 +1,4 @@
-FROM juanmartinez/hadoop:2.7.7
+FROM juanmartinez/hadoop:2.10.0
 
 ARG ACCUMULO_VERSION=2.0.0
 ENV ACCUMULO_HOME=/opt/accumulo
