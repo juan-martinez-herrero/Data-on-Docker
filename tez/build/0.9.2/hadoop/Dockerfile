@@ -1,4 +1,4 @@
-FROM juanmartinez/hadoop:2.10.0
+FROM juanmartinez/hadoop:3.2.1
 
 ARG TEZ_VERSION=0.9.2
 ENV INIT_DIR=/opt/init

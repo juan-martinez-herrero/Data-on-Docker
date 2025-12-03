@@ -1,4 +1,4 @@
-FROM juanmartinez/hadoop:2.10.0
+FROM juanmartinez/hadoop:3.2.1
 
 LABEL maintainer "Juan Martinez <arcangelo@gmail.com>"
 LABEL Description="Hive docker image" Version="2.3.7"

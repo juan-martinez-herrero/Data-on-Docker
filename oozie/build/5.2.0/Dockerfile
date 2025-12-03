@@ -13,7 +13,7 @@ RUN apt-get update \
     && cd ${OOZIE_HOME} \
     && bin/mkdistro.sh -Puber -Pspark-2 -DskipTests -Dhadoop.version=${HADOOP_VERSION}
 
-FROM juanmartinez/hadoop:2.10.0
+FROM juanmartinez/hadoop:3.2.1
 
 LABEL maintainer "Juan Martinez <arcangelo@gmail.com>"
 LABEL Description="Apache Oozie docker image" Version="5.2.0"
