@@ -1,4 +1,4 @@
-FROM juanmartinez/openjdk:8.0.252
+FROM juanmartinez/openjdk:11.0.7
 
 LABEL maintainer "Juan Martinez <arcangelo@gmail.com>"
 LABEL Description="Kafka docker image" Version="2.4.1" Scala_version="2.12"

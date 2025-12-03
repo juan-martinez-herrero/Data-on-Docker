@@ -1,4 +1,4 @@
-FROM juanmartinez/openjdk:8.0.252
+FROM juanmartinez/openjdk:11.0.7
 
 LABEL maintainer "Juan Martinez <arcangelo@gmail.com>"
 LABEL Description="Apache Zookeeper docker image" Version="3.5.8"

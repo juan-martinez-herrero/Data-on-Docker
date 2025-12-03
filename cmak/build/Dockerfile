@@ -1,4 +1,4 @@
-FROM juanmartinez/openjdk:11.0.6 AS BUILD
+FROM juanmartinez/openjdk:11.0.7 AS BUILD
 
 ARG CMAK_VERSION=3.0.0.4
 ENV CMAK_BUILD_DIR=/tmp/cmak-build
@@ -18,7 +18,7 @@ RUN apt-get update \
     && apt-get install --no-install-recommends -y unzip \
     && unzip cmak-${CMAK_VERSION}.zip
 
-FROM juanmartinez/openjdk:11.0.6
+FROM juanmartinez/openjdk:11.0.7
 
 LABEL maintainer "Juan Martinez <arcangelo@gmail.com>"
 LABEL Description="CMAK docker image" Version=3.0.0.4

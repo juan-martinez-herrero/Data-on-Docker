@@ -1,4 +1,4 @@
-FROM juanmartinez/openjdk:8.0.242
+FROM juanmartinez/openjdk:11.0.7
 
 ARG ACTIVEMQ_VERSION=5.15.12
 ENV ACTIVEMQ_HOME=/opt/activemq \

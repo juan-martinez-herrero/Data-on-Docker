@@ -1,4 +1,4 @@
-FROM juanmartinez/openjdk:8.0.242
+FROM juanmartinez/openjdk:11.0.7
 
 ARG H2O_VERSION=3.30.0.1
 ENV H2O_HOME=/opt/h2o \
