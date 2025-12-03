@@ -1,4 +1,4 @@
-FROM debian:10.13-slim
+FROM debian:13.2-slim
 
 ARG RABBITMQ_VERSION=3.8.3
 ARG ERLANG_VERSION=22.3.2
