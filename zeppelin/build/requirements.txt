@@ -4,7 +4,7 @@ matplotlib==3.10.7
 pandasql==0.7.3
 ipython==8.37.0
 jupyter_client==5.3.4
-ipykernel==5.5.6
+ipykernel==7.1.0
 bokeh==3.8.1
 grpcio==1.76.0
 scipy==1.16.3
