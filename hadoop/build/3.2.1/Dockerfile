@@ -1,4 +1,4 @@
-FROM openjdk:11.0.7-jdk-slim-buster
+FROM openjdk:17.0.2-jdk-slim-buster
 
 LABEL maintainer "Juan Martinez <arcangelo@gmail.com>"
 LABEL Description="Hadoop docker image" Version="3.2.1"
