@@ -1,4 +1,4 @@
-FROM debian:13.2-slim
+FROM debian:13.3-slim
 
 ARG MONGODB_VERSION=4.2.5
 ENV MONGODB_HOME=/opt/mongodb
