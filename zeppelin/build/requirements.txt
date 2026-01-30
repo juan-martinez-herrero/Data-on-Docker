@@ -11,4 +11,4 @@ bokeh==3.8.1
 grpcio==1.76.0
 scipy==1.16.3
 hvplot==0.12.1
-protobuf==6.33.1
+protobuf==6.33.5
