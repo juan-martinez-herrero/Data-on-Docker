@@ -1,4 +1,4 @@
-FROM debian:13.2-slim
+FROM debian:13.3-slim
 
 ARG MLFLOW_VERSION=1.7.2
 ENV MLFLOW_HOME /opt/mlflow
