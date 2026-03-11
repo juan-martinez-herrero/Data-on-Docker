@@ -7,7 +7,7 @@ pandasql==0.7.3
 ipython==9.11.0
 jupyter_client==8.8.0
 ipykernel==7.2.0
-bokeh==3.8.2
+bokeh==3.9.0
 grpcio==1.78.0
 scipy==1.17.1
 hvplot==0.12.2
