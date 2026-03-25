@@ -1,4 +1,4 @@
-FROM debian:13.3-slim
+FROM debian:13.4-slim
 
 ARG AIRFLOW_VERSION=1.10.9
 ENV AIRFLOW_HOME /opt/airflow
