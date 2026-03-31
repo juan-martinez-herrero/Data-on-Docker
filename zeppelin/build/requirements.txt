@@ -1,7 +1,7 @@
 numpy==2.4.3
-pandas==3.0.1
+pandas==3.0.2
 numpy==2.4.3
-pandas==3.0.1
+pandas==3.0.2
 matplotlib==3.10.8
 pandasql==0.7.3
 ipython==9.11.0
