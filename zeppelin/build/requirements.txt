@@ -2,7 +2,7 @@ numpy==2.4.3
 pandas==3.0.1
 numpy==2.4.3
 pandas==3.0.1
-matplotlib==3.10.8
+matplotlib==3.10.9
 pandasql==0.7.3
 ipython==9.11.0
 jupyter_client==8.8.0
