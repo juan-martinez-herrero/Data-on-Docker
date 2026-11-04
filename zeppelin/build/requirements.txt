@@ -4,7 +4,7 @@ numpy==2.5.4
 pandas==3.0.1
 matplotlib==3.11.2
 pandasql==0.7.3
-ipython==9.11.0
+ipython==9.18.1
 jupyter_client==8.8.0
 ipykernel==7.4.0
 bokeh==3.10.1
