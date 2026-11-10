@@ -10,5 +10,5 @@ ipykernel==7.4.0
 bokeh==3.10.1
 grpcio==1.78.0
 scipy==1.18.1
-hvplot==0.12.2
+hvplot==0.13.0
 protobuf==7.36.2
