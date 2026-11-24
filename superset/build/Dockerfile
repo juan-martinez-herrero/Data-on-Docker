@@ -1,4 +1,4 @@
-FROM debian:13.7-slim
+FROM debian:13.8-slim
 
 ARG SUPERSET_VERSION=0.35.2
 ENV INIT_DIR /opt/init
